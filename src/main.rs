@@ -57,7 +57,7 @@ fn parse_args(args: Vec<String>) -> Program {
         None => env::current_dir().expect("Could not get current directory"),
     };
 
-    if args.len() > 1 {
+    if args.len() > 2 || (args.len() > 1 && !show_hidden) {
         Program {
             path: Some(PathBuf::from(path)),
             show_hidden,
